@@ -16,6 +16,9 @@
       <AdditionalLibraryDirectories>$(OutputDir);$(OutputRoot)Lib$(Configuration)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutputRoot)Pdb$(Configuration)\$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ThirdParty);$(SolutionRoot)\Source\</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="SlnRoot">

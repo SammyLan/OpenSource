@@ -6,3 +6,5 @@
 /Tmp
 /Output/PdbDebug
 /Output/Debug
+/Output/Release
+/Output/PdbRelease
