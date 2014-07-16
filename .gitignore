@@ -8,3 +8,12 @@
 /Output/Debug
 /Output/Release
 /Output/PdbRelease
+/3rd/jsoncpp/build
+/3rd/tinyxml/Debugtinyxml
+/3rd/tinyxml/ReleasetinyXmlTestSTL
+/3rd/tinyxml/DebugtinyxmlSTL
+/3rd/tinyxml/DebugtinyXmlTest
+/3rd/tinyxml/DebugtinyXmlTestSTL
+/3rd/tinyxml/Releasetinyxml
+/3rd/tinyxml/ReleasetinyxmlSTL
+/3rd/tinyxml/ReleasetinyXmlTest
