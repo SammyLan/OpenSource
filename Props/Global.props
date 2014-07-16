@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <SlnRoot>$(SolutionDir)</SlnRoot>
+    <OutputRoot>$(SlnRoot)Output\</OutputRoot>
+    <TmpRoot>$(SlnRoot)Tmp\</TmpRoot>
+    <ThirdParty>$(SlnRoot)3rd\</ThirdParty>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IntDir>$(TmpRoot)$(Configuration)\$(ProjectName)\</IntDir>
+    <OutDir>$(OutputRoot)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>$(OutputDir);$(OutputRoot)Lib$(Configuration)\</AdditionalLibraryDirectories>
+      <ProgramDatabaseFile>$(OutputRoot)Pdb$(Configuration)\$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="SlnRoot">
+      <Value>$(SlnRoot)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OutputRoot">
+      <Value>$(OutputRoot)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="TmpRoot">
+      <Value>$(TmpRoot)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ThirdParty">
+      <Value>$(ThirdParty)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
