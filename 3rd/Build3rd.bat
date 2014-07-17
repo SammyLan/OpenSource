@@ -30,7 +30,7 @@
 @for /F "tokens=1,2* delims=:" %%i in (%CopyList%) do (
 	@set CopyDir=%%i
 	@if exist !CopyDir! (
-		xcopy !CopyDir!*.lib  !LibRelease!
+		xcopy /Y !CopyDir!*.lib  !LibRelease!
 	)
 	@echo !SLNName!
 )
@@ -39,7 +39,7 @@
 @for /F "tokens=1,2* delims=:" %%i in (%CopyList%) do (
 	@set CopyDir=%%i
 	@if exist !CopyDir! (
-		xcopy !CopyDir!*.lib  !LibDebug!
+		xcopy /Y !CopyDir!*.lib  !LibDebug!
 	)
 	@echo !SLNName!
 )
