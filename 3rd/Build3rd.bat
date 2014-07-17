@@ -20,11 +20,11 @@
 		call "!VSDEVENV_EXE!" !SLNName! /Rebuild Debug
 		call "!VSDEVENV_EXE!" !SLNName! /Rebuild Release
 	)
-	@echo !SLNName!
+	@echo Build !SLNName! ...
 )
 
-@if exist !LibDebug! mkdir !LibDebug!
-@if exist !LibRelease! mkdir !LibRelease!
+@if not exist !LibDebug! mkdir !LibDebug!
+@if not exist !LibRelease! mkdir !LibRelease!
 
 @set CopyList=%ROOT_DIR%BuildCopy.ini
 @for /F "tokens=1,2* delims=:" %%i in (%CopyList%) do (
@@ -32,7 +32,6 @@
 	@if exist !CopyDir! (
 		xcopy /Y !CopyDir!*.lib  !LibRelease!
 	)
-	@echo !SLNName!
 )
 
 @set CopyList=%ROOT_DIR%BuildCopyDebug.ini
@@ -41,7 +40,6 @@
 	@if exist !CopyDir! (
 		xcopy /Y !CopyDir!*.lib  !LibDebug!
 	)
-	@echo !SLNName!
 )
 
 

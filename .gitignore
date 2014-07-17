@@ -17,3 +17,6 @@
 /3rd/tinyxml/Releasetinyxml
 /3rd/tinyxml/ReleasetinyxmlSTL
 /3rd/tinyxml/ReleasetinyXmlTest
+/3rd/jsoncpp/makefiles/vs71/ipch/lib_json-1ddcb342/*.ipch
+/Output/LibRelease
+/Output/LibDebug
