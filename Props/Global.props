@@ -10,14 +10,16 @@
   <PropertyGroup>
     <IntDir>$(TmpRoot)$(Configuration)\$(ProjectName)\</IntDir>
     <OutDir>$(OutputRoot)$(Configuration)\</OutDir>
+    <LinkKeyFile>Test.ilk</LinkKeyFile>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalLibraryDirectories>$(OutputDir);$(OutputRoot)Lib$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir);$(OutputRoot)Lib$(Configuration)\</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>$(OutputRoot)Pdb$(Configuration)\$(TargetName).pdb</ProgramDatabaseFile>
+      <ImportLibrary>$(OutputRoot)Lib$(Configuration)\</ImportLibrary>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ThirdParty);$(SolutionRoot)\Source\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ThirdParty);$(SlnRoot)\Source\</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
