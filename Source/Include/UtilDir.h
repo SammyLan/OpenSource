@@ -5,7 +5,7 @@ namespace Util
 	namespace Dir
 	{
 		//获取应用程序根目录
-		COMMON_API CStringW GetAppDirW();
-		COMMON_API CStringA GetAppDirA();
+		COMMON_API CString GetAppDir();
+		COMMON_API CString GetDataDir();
 	}
 }

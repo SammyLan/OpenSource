@@ -14,6 +14,5 @@
 
 #include <atlbase.h>
 #include <atlstr.h>
-
+#include <windows.h>
 // TODO: reference additional headers your program requires here
-#include <Include/UtilDir.h>

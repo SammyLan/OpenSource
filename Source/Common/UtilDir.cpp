@@ -1,18 +1,16 @@
 #include "StdAfx.h"
 #include <Include\UtilDir.h>
 
-CStringW Util::Dir::GetAppDirW()
+CString Util::Dir::GetAppDir()
 {
-	WCHAR modulePath[MAX_PATH];
+	TCHAR modulePath[MAX_PATH];
 	::GetModuleFileNameW(NULL,modulePath,MAX_PATH);
 	CStringW strPath(modulePath);
-	return strPath.Left(strPath.ReverseFind(L'\\'));
+	return strPath.Left(strPath.ReverseFind(_T('\\')));
 }
 
-CStringA Util::Dir::GetAppDirA()
+CString Util::Dir::GetDataDir()
 {
-	CHAR modulePath[MAX_PATH];
-	::GetModuleFileNameA(NULL,modulePath,MAX_PATH);
-	CStringA strPath(modulePath);
-	return strPath.Left(strPath.ReverseFind('\\'));
+	CString strAppDir = GetAppDir();
+	return strAppDir.Left(strAppDir.ReverseFind(_T('\\'))) + _T("\\Data");
 }

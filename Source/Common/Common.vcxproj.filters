@@ -33,6 +33,9 @@
     <ClInclude Include="..\Include\CommonExp.h">
       <Filter>Util</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\UtilConvert.h">
+      <Filter>Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +48,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UtilDir.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilConvert.cpp">
       <Filter>Util</Filter>
     </ClCompile>
   </ItemGroup>

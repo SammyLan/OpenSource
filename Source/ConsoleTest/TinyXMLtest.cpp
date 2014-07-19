@@ -6,12 +6,16 @@
 #include <tinyxml\tinyxml.h>
 #include <tinyxml\tinystr.h>
 #include <string>
-#include <windows.h>
-#include <atlstr.h>
-#pragma comment(lib,"tinyxml.lib")
-#pragma comment(lib,"common.lib")
+#include <Include/UtilDir.h>
+#include <Include/UtilConvert.h>
+#include ".\LeakDiag\LeakDiagParser.h"
+
 using namespace std;
 
+string GetXMLPath()
+{
+	return (LPCSTR)Util::Convert::UnicodeToGBK(Util::Dir::GetDataDir()) +string( "\\QQ_Leak.xml");
+}
 bool CreateXmlFile(string& szFileName)
 {//创建xml文件,szFilePath为文件保存的路径,若创建成功返回true,否则false
     try
@@ -36,7 +40,7 @@ bool CreateXmlFile(string& szFileName)
         TiXmlText *AgeContent = new TiXmlText("22");
         NameElement->LinkEndChild(NameContent);
         AgeElement->LinkEndChild(AgeContent);
-        CStringA appPath = Util::Dir::GetAppDirA();
+		CStringA appPath = Util::Convert::UnicodeToGBK(Util::Dir::GetAppDir());
         string seperator = "\\";
         string fullPath = string(appPath.GetBuffer(0)) + seperator + szFileName;
         myDocument->SaveFile(fullPath.c_str());//保存到文件
@@ -52,7 +56,7 @@ bool ReadXmlFile(string& szFileName)
 {//读取Xml文件，并遍历
     try
     {
-        CStringA appPath = Util::Dir::GetAppDirA();
+		CStringA appPath = Util::Convert::UnicodeToGBK(Util::Dir::GetAppDir());
         string seperator = "\\";
         string fullPath = appPath.GetBuffer(0) +seperator+szFileName;
         //创建一个XML的文档对象。
@@ -60,7 +64,7 @@ bool ReadXmlFile(string& szFileName)
         myDocument->LoadFile();
         //获得根元素，即Persons。
         TiXmlElement *RootElement = myDocument->RootElement();
-        //输出根元素名称，即输出Persons。
+       // 输出根元素名称，即输出Persons。
         cout << RootElement->Value() << endl;
         //获得第一个Person节点。
         TiXmlElement *FirstPerson = RootElement->FirstChildElement();
@@ -81,7 +85,8 @@ bool ReadXmlFile(string& szFileName)
 }
 int main()
 {
-    string fileName = "info.xml";
-    CreateXmlFile(fileName);
-    ReadXmlFile(fileName);
+	string fileName = GetXMLPath();
+	LeakDiagParser parser;
+	parser.Load(fileName);
+	cout<<parser.TotalLeak()/1024<<"k"<<endl;
 }
